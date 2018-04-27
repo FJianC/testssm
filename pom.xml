@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 模型版本 -->
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 组织或公司的唯一标志  生成路径 -->
+  <groupId>com.demo</groupId>
+    <!-- 项目ID  一个groupID可能包含多个项目 -->
+  <artifactId>test</artifactId>
+    <!-- 本项目目前的版本号 -->
+  <version>1.0-SNAPSHOT</version>
+    <!-- 打包机制/构件类型  pom jar war rar ... -->
+  <packaging>war</packaging>
+    <!-- 项目名 -->
+  <name>test Maven Webapp</name>
+  <!-- FIXME change it to the project's website --><!-- 项目主页 -->
+  <url>http://www.example.com</url>
+
+    <!-- 定义pom的常量  在pom.xml中可以引用 -->
+  <properties>
+    <!-- 设置项目编码解码 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+    <!-- 依赖包 -->
+  <dependencies>
+    <!-- 单元测试 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+      <!-- java ee -->
+      <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+      <dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>8.0</version>
+          <scope>provided</scope>
+      </dependency>
+
+    <!-- 日志 -->
+    <!-- 实现slf4j接口并整合 -->
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
+      <scope>test</scope>
+    </dependency>
+
+      <!-- 数据库 -->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>6.0.6</version>
+    </dependency>
+    <!-- 数据库连接池 -->
+      <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+      <dependency>
+          <groupId>com.mchange</groupId>
+          <artifactId>c3p0</artifactId>
+          <version>0.9.5.2</version>
+      </dependency>
+
+    <!-- DAO:MyBatis -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.6</version>
+    </dependency>
+    <!-- mybatis/spring整合包 -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+
+    <!-- Servlet fjianc.web -->
+    <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- JSON -->
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!-- Spring 核心 -->
+      <!-- spring的核心包，包含Spring框架基本的核心工具类，
+      Spring其它组件要都要使用到这个包里的类，是其它组件的基本核心。
+      包括ASM，C G L I B以及相关的工具类 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+      <!-- springIoC（依赖注入）的基础实现，所有应用都要用到的，
+      它包含访问配置文件、创建和管理bean以及进行Inversion of Control / Dependency Injection（IoC/DI）操作相关的所有类。
+      但是这个是个基础实现，一般我们在实际的开发过程中很少直接用到，它是对起到支撑作用的。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+      <!-- 为Spring核心提供了大量扩展。可以找到使用Spring ApplicationContext特性时所需的全部类，
+      JDNI所需的全部类，UI方面的用来与模板(Templating)引擎如 Velocity、FreeMarker、JasperReports集成的类，
+      以及校验Validation方面的相关类，还有ejb,cache,format,jms等等。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+      <!-- spring-context 的扩展支持，用于 MVC 方面，
+      包含支持缓存Cache（ehcache）、JCA、JMX、
+      邮件服务（Java Mail、COS Mail）、任务计划Scheduling（Timer、Quartz）方面的类。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+
+    <!-- Spring DAO层 -->
+      <!-- 包含对Spring对JDBC数据访问进行封装的所有类。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+      <!-- spring提供对事务的支持，事务的相关处理以及实现类就在这个Jar包中 -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>5.0.5.RELEASE</version>
+      </dependency>
+      <!-- 包含Web应用开发时，用到Spring框架时所需的核心类，
+      包括自动载入 WebApplicationContext特性的类、Struts与JSF集成类、文件上传的支持类、Filter类和大量工具辅助类 -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>5.0.5.RELEASE</version>
+      </dependency>
+      <!-- 包含SpringMVC框架相关的所有类。
+      包含国际化、标签、Theme、视图展现的FreeMarker、JasperReports、Tiles、Velocity、XSLT相关类。
+      当然，如果你的应用使用了独立的MVC框架，则无需这个JAR文件里的任何类。 -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>5.0.5.RELEASE</version>
+      </dependency>
+
+    <!-- Spring test -->
+      <!-- 对Junit等测试框架的简单封装。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>5.0.5.RELEASE</version>
+          <scope>test</scope>
+      </dependency>
+
+    <!-- 提供对AspectJ的支持，以便可以方便的将面向方面的功能集成进IDE中， 比如Eclipse AJDT。 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
+
+      <!-- redis客户端:Jedis -->
+      <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>2.9.0</version>
+      </dependency>
+      <!-- 绑定了三种二进制格式：protostuff、graph、protobuf。
+        protostuff与protobuf的区别：
+            1）protobuf有一个名为“group”的编码类型域，而protostuff使用它作为嵌套的消息。
+            2）protostuff可以使用尾部界定符来处理消息流（Stream）。
+            3）protostuff的一级类在本地格式中支持循环引用。 -->
+      <!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-core -->
+      <dependency>
+          <groupId>com.dyuproject.protostuff</groupId>
+          <artifactId>protostuff-core</artifactId>
+          <version>1.1.3</version>
+          <scope>test</scope>
+      </dependency>
+      <!-- 自动启用现有的POJO序列化/反序列化为各种格式。可使用运行时序列化策略，
+      w/c通过系统属性进行配置。依赖于protostuff-API和protostuff-collectionschema。 -->
+      <!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-runtime -->
+      <dependency>
+          <groupId>com.dyuproject.protostuff</groupId>
+          <artifactId>protostuff-runtime</artifactId>
+          <version>1.1.3</version>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- Map工具类 -->
+      <!-- 为Java标准的Collections API提供了相当好的补充。
+      在此基础上对其常用的数据结构操作进行了很好的封装、抽象和补充。保证性能的同时大大简化代码。  -->
+      <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+      <dependency>
+          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections</artifactId>
+          <version>3.2.2</version>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.5</version>
+      </dependency>
+
+
+  </dependencies>
+
+    <!-- 插件 -->
+  <build>
+    <finalName>test</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
